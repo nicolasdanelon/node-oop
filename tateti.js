@@ -21,20 +21,18 @@ class Tateti {
     }
 
     hacerMovimiento(fila, columna) {
-        if (fila <= 2 || columna <= 2 || this.tablero[fila][columna] === " ") {
+        if (this.tablero[fila][columna] === " ") {
             this.tablero[fila][columna] = this.turno;
             this.imprimirTablero();
             if (this.hayGanador()) {
                 console.log(`¡${this.turno} es el ganador!`);
-                this.resetearJuego();
             } else if (this.hayEmpate()) {
                 console.log("¡Empate!");
-                this.resetearJuego();
             } else {
                 this.cambiarTurno();
             }
         } else {
-            console.log("Movimiento inválido. Intenta nuevamente.");
+            throw new Error("Movimiento inválido. Intenta nuevamente.");
         }
     }
 
@@ -109,3 +107,6 @@ juego.hacerMovimiento(1, 1); // Jugador O
 juego.hacerMovimiento(0, 1); // Jugador X
 juego.hacerMovimiento(2, 1); // Jugador O
 juego.hacerMovimiento(0, 2); // Jugador X
+
+// Resetear el tablero
+juego.resetearJuego();

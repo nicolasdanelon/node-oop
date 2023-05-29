@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --silent",
+    "test-log": "jest",
     "coverage": "npx jest --coverage --silent"
   },
   "author": "nicolasmd.com.ar",
